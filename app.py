@@ -96,8 +96,7 @@ def write():
                 with st.spinner("Training may take time based on number of days. Please wait..."):
                     history_lstm = lstm.fit(x_train, y_train, epochs=25, batch_size=10, verbose=2)
                     st.success("Model is ready!")
-            if st.sidebar.button("Reset"):
-                stock=""
+                st.button("Re-run")
 
                 test_data = scaled_data[training_data_len - num_days: , : ]
                 x_test = []
