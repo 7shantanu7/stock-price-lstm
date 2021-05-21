@@ -42,7 +42,9 @@ def write():
         contact_info = st.checkbox("Contact Info")
         if contact_info:
             st.write(f"City: {company_info['city']}")
-            st.write(f"Phone: {company_info['phone']}")
+            phone = company_info['phone'].replace(" ","")
+            phone = "+"+phone
+            st.text(f"Phone: {phone}")
             st.write(f"Website: {company_info['website']}")
 
         st.sidebar.header("Finance")
