@@ -6,12 +6,10 @@ import time
 import streamlit as st
 import yfinance as yf
 
-
 def get_nse_equity():
     nse_equity_df = pd.read_csv("output.csv")
     nse_equity_df = nse_equity_df.iloc[:,:]
     return nse_equity_df
-
 
 def get_symbol_lst():
     nse_equity_df = pd.read_csv("output.csv")

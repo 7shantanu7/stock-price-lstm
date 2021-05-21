@@ -10,6 +10,7 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 
 def write():
+    #st.text("(note some companies may not available, we're working on it)")
     st.title("Company")
     df = get_nse_equity()
 
@@ -17,9 +18,11 @@ def write():
     new_symbol_lst = [symbol[:-3] for symbol in symbol_lst ]
  
     stock = st.sidebar.text_input("Enter symbol", value="")
+    if stock:
+        if st.sidebar.button("Choose another company"):
+            stock=""
+            
     stock_lst = df
-
-
 
     # Symbol input condition
     if stock in symbol_lst:
@@ -32,7 +35,6 @@ def write():
         st.table(stock_lst[["NSE SYMBOL","NAME OF COMPANY","YAHOO SYMBOL"]].reset_index(drop=True))
     else:
         company_info = get_company_info(stock)
-        #st.write(f"Company Name: {company_info['NAME OF COMPANY']}")
         st.write(f"Industry: {company_info['industry']}")
         business_summary = st.checkbox("Business Summary")
         if business_summary:
@@ -40,7 +42,9 @@ def write():
         contact_info = st.checkbox("Contact Info")
         if contact_info:
             st.write(f"City: {company_info['city']}")
-            st.write(f"Phone: {company_info['phone']}")
+            phone = company_info['phone'].replace(" ","")
+            phone = "+"+phone
+            st.text(f"Phone: {phone}")
             st.write(f"Website: {company_info['website']}")
 
         st.sidebar.header("Finance")
@@ -92,7 +96,8 @@ def write():
                 with st.spinner("Training may take time based on number of days. Please wait..."):
                     history_lstm = lstm.fit(x_train, y_train, epochs=25, batch_size=10, verbose=2)
                     st.success("Model is ready!")
-
+            if st.sidebar.button("Reset"):
+                stock=""
 
                 test_data = scaled_data[training_data_len - num_days: , : ]
                 x_test = []
@@ -115,8 +120,6 @@ def write():
                 result = scaler.inverse_transform(result)
                 st.write("The {} price of next deal day is :".format(word))
                 st.info(round(float(result),2))
-
-                
 
                 st.header("Model Evaluation")
                 st.write('R Square - ',round(metrics.r2_score(y_test,pred),2))
