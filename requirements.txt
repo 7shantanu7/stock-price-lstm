@@ -1,0 +1,10 @@
+requests
+pandas
+streamlit
+yfinance
+awesome_streamlit
+sklearn
+numpy==1.19.5
+keras
+matplotlib
+tensorflow-cpu
