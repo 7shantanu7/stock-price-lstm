@@ -15,12 +15,11 @@ def main():
     """Main function of the App"""
     st.sidebar.title("Menu")
     selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-
     page = PAGES[selection]
-
     with st.spinner(f"Loading {selection} ..."):
         ast.shared.components.write_page(page)
-
+        
+#hide the streamlit watermark at the bottom
 hide_streamlit_style = """
             <style>
             footer {visibility: hidden;}
