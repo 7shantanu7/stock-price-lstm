@@ -7,12 +7,12 @@ import streamlit as st
 import yfinance as yf
 
 def get_nse_equity():
-    nse_equity_df = pd.read_csv("output.csv")
+    nse_equity_df = pd.read_csv("data/output.csv")
     nse_equity_df = nse_equity_df.iloc[:,:]
     return nse_equity_df
 
 def get_symbol_lst():
-    nse_equity_df = pd.read_csv("output.csv")
+    nse_equity_df = pd.read_csv("data/output.csv")
 #    symbol_lst = nse_equity_df["NSE SYMBOL"].tolist()
     symbol_yh =  nse_equity_df["YAHOO SYMBOL"].tolist()  
     return symbol_yh
