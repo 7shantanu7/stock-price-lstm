@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def write():
     #st.text("(note some companies may not available, we're working on it)")
+    st.text("Tip: Use Ctrl+F for searching")
     st.title("Company")
     df = get_nse_equity()
 
@@ -24,13 +25,13 @@ def write():
             
     stock_lst = df
 
-    # Symbol input condition
+    # Check the symbol if it ends with .NS then it's yahoo symbol
     if stock in symbol_lst:
         stock = stock
     elif stock in new_symbol_lst:
         stock = stock + ".NS"
 
-    # App condition
+
     if stock == "":
         st.table(stock_lst[["NSE SYMBOL","NAME OF COMPANY","YAHOO SYMBOL"]].reset_index(drop=True))
     else:
@@ -76,8 +77,7 @@ def write():
             scaler = MinMaxScaler(feature_range=(0, 1))
             scaled_data = scaler.fit_transform(dataset)
 
-            #Create a training data set that contains the past 1 day closing price values
-            #that we want to use to predict the 15st closing price value.
+            #Creation of dataset
             train_data = scaled_data[0:training_data_len, : ]
             x_train, y_train = [], []
             for i in range(num_days,training_data_len):
@@ -110,7 +110,6 @@ def write():
                 pred = scaler.inverse_transform(pred)
 
                 st.header("Prediction")
-                #inputs are data of past ? days
                 inputs = df_new.iloc[len(df_new)-num_days:len(df_new)].values
                 inputs = inputs.reshape(-1,1)
                 inputs  = scaler.fit_transform(inputs)

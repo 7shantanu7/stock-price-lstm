@@ -7,11 +7,11 @@ ast.core.services.other.set_logging_format()
 
 PAGES = {
     "About" : about,
-    "Company Info / Finance": app,
+    "Company Info/Finance": app,
 }
 
 def main():
-    """Main function of the App"""
+    #Main function of the App
     st.sidebar.title("Menu")
     selection = st.sidebar.radio("Go to", list(PAGES.keys()))
     page = PAGES[selection]
