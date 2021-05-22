@@ -1,6 +1,5 @@
 '''Script to generate NSE symbol list and output in csv format'''
 
-
 import csv
 import pandas as pd
 from nsetools import Nse
@@ -15,9 +14,7 @@ with open('outputf.csv', 'w', newline='') as output:
         writer.writerow([key, value])
 
 #for nse symbols
-
 list = []
-
 with open('outputf.csv', newline='') as csvfile:
     data = csv.DictReader(csvfile)
     for row in data:
