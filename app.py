@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 def write():
     #st.text("(note some companies may not available, we're working on it)")
+    st.text("Tip: Use Ctrl+F for searching")
     st.title("Company")
     df = get_nse_equity()
 
