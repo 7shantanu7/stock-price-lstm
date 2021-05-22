@@ -13,3 +13,4 @@ def write():
     st.text("")
     st.text("A group project made by:")
     st.text("Kunal Sirpor, Pranav Virmalwar & Shantanu Zadbuke")
+    st.write("[Link to github repository](https://github.com/7shantanu7/stock-price-lstm)")
