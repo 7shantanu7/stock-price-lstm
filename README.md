@@ -4,7 +4,7 @@
   <img width="460" height="300" src="data/stock-market.webp"> 
 </p>
 
-### This is a simple streamlit app to predict the next day stock price using [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory)<br><br>
+### This is a simple streamlit app to predict the next day stock's High, Low, Open and Close price using [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory)<br><br>
 ![](data/screen_recording.gif)
 ## Prerequisities
 
@@ -21,7 +21,7 @@ Clone the project repository:
 git clone https://github.com/7shantanu7/stock-price-lstm.git
 ```
 ```bash
-cd github.com/7shantanu7/stock-price-lstm
+cd ./stock-price-lstm
 ```
 To install the requirements using `pip`:
 ```bash
