@@ -34,5 +34,5 @@ pip install -r requirements.txt
 
 Finally, if you want to run the main script:
 ```bash
-streamlit run main.py
+streamlit run NSE-Stock-Predictor.py
 ```
